@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Habibur Rahman — HSC 27 (Science)</title>
+  <meta name="description" content="Habibur Rahman — HSC 27 Batch (Science). Connect on Facebook, WhatsApp, YouTube, and Yeolpumta." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#7b2ff7; --bg2:#f107a3; --bg3:#00c6ff; --bg4:#f7971e;
+      --card:#0f1020cc; --text:#f7f9ff; --muted:#cfd6ff;
+      --accent1:#22d3ee; --accent2:#f472b6; --accent3:#a3e635;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text); overflow-x:hidden;
+      background: linear-gradient(120deg,var(--bg1),var(--bg2),var(--bg3),var(--bg4));
+      background-size: 400% 400%;
+      animation: gradientShift 12s ease-in-out infinite;
+    }
+    @keyframes gradientShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    /* Floating color orbs */
+    .orb{
+      position:fixed; width:45vmin; height:45vmin; border-radius:50%;
+      filter: blur(40px); opacity:.35; mix-blend-mode: screen; pointer-events:none;
+      animation: float 18s ease-in-out infinite;
+    }
+    .orb.o1{background:#ff6ec7; top:8%; left:-10%; animation-delay:0s}
+    .orb.o2{background:#2ee6ff; bottom:-10%; right:-8%; animation-delay:2s}
+    .orb.o3{background:#aaff6c; top:50%; left:60%; animation-delay:4s}
+    @keyframes float{
+      0%,100%{transform: translateY(0) translateX(0) scale(1)}
+      50%{transform: translateY(-20px) translateX(10px) scale(1.05)}
+    }
+
+    .wrap{max-width: 1100px; margin:0 auto; padding:24px}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:12px 16px; background:#0b0c1acc; border:1px solid #ffffff22;
+      backdrop-filter: blur(10px); border-radius:16px; position:sticky; top:12px; z-index:3;
+    }
+    .brand{font-weight:800; letter-spacing:0.5px}
+    .tag{font-size:12px; color:var(--muted)}
+    nav a{
+      color:var(--text); text-decoration:none; margin-left:14px; font-weight:600; opacity:.9;
+    }
+    nav a:hover{opacity:1; text-decoration:underline}
+
+    .hero{
+      margin-top:28px; padding:32px; border-radius:20px; background:var(--card);
+      border:1px solid #ffffff22; position:relative; overflow:hidden;
+    }
+    .hero h1{margin:0 0 6px 0; font-size: clamp(28px, 5vw, 48px)}
+    .hero p{margin:0 0 18px 0; color:var(--muted)}
+    .chip{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 14px; margin:6px 8px 0 0;
+      border-radius:999px; font-weight:600; color:#0b0c1a; background: #fff;
+      box-shadow: 0 6px 20px #00000033;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; padding:12px 18px; margin-top:16px;
+      color:#0b0c1a; font-weight:700; border-radius:12px; background:#fff; border:none; cursor:pointer;
+      position:relative; overflow:hidden; transition: transform .15s ease;
+      text-decoration:none;
+    }
+    .btn:hover{transform: translateY(-2px)}
+    .btn.glow{
+      color:#fff; background:#141529; border:1px solid #ffffff22;
+    }
+    .btn.glow::before{
+      content:""; position:absolute; inset:-2px; z-index:-1; border-radius:14px;
+      background: conic-gradient(from 0deg,var(--accent1),var(--accent2),var(--accent3),var(--accent1));
+      filter: blur(12px); animation: spin 3.5s linear infinite;
+    }
+    @keyframes spin{to{transform: rotate(1turn)}}
+
+    section{
+      margin-top:28px; padding:24px; border-radius:18px; background:#0b0c1acc; border:1px solid #ffffff22;
+      backdrop-filter: blur(8px);
+    }
+    h2{margin:0 0 10px 0; font-size: clamp(20px, 3.5vw, 28px)}
+    .grid{
+      display:grid; grid-template-columns:repeat(12,1fr); gap:16px;
+    }
+    .card{
+      grid-column: span 12; padding:18px; border-radius:14px; background:#12132acc; border:1px solid #ffffff22;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{ transform: translateY(-4px); box-shadow: 0 10px 30px #00000040; }
+    .label{font-size:12px; color:var(--muted); text-transform:uppercase; letter-spacing:1px}
+    .value{font-weight:700}
+
+    /* Social buttons */
+    .socials{display:flex; flex-wrap:wrap; gap:12px; margin-top:4px}
+    .sbtn{
+      --c:#000;
+      display:inline-flex; align-items:center; gap:10px; padding:12px 14px; border-radius:12px;
+      text-decoration:none; color:#fff; font-weight:700; position:relative; overflow:hidden;
+      border:1px solid #ffffff22;
+    }
+    .sbtn::after{
+      content:""; position:absolute; inset:0; opacity:0; transition:.25s;
+      background: radial-gradient(600px 90px at var(--x,50%) var(--y,50%), #ffffff33, transparent 40%);
+    }
+    .sbtn:hover::after{opacity:1}
+    .sbtn.fb{background:#1877f2}
+    .sbtn.wa{background:#25d366}
+    .sbtn.yt{background:#ff0033}
+    .sbtn.yp{background:linear-gradient(135deg,#7928ca,#ff0080)}
+    .sbtn span{opacity:.95}
+    .emoji{font-size:18px}
+
+    /* Responsive */
+    @media (min-width:720px){
+      .card.half{grid-column: span 6}
+      .card.third{grid-column: span 4}
+    }
+
+    /* Reveal on scroll */
+    .reveal{opacity:0; transform: translateY(16px); transition: .6s ease}
+    .reveal.show{opacity:1; transform: translateY(0)}
+  </style>
+</head>
+<body>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
+  <div class="orb o3"></div>
+
+  <div class="wrap">
+    <header>
+      <div>
+        <div class="brand">Habibur Rahman</div>
+        <div class="tag">HSC 27 Batch • Science</div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#links">Links</a>
+      </nav>
+    </header>
+
+    <div class="hero reveal">
+      <h1>Hi, I’m Habibur 👋</h1>
+      <p>Curious mind from the HSC 2027 Science batch — learning, creating, and connecting.</p>
+      <div>
+        <span class="chip">Physics ⚛️</span>
+        <span class="chip">Chemistry ⚗️</span>
+        <span class="chip">Math ➗</span>
+        <span class="chip">ICT 💻</span>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a class="btn glow" href="https://wa.me/message/6KNG5BCTVB4OI1" target="_blank" rel="noopener">
+          ✉️ Message on WhatsApp
+        </a>
+        <a class="btn" href="#links">All my links</a>
+      </div>
+    </div>
+
+    <section id="about" class="reveal">
+      <h2>About me</h2>
+      <p>
+        I’m Habibur Rahman, a student from the HSC 27 (Science) batch. I love sharing what I learn and building communities online.
+        My focus right now: strong fundamentals, consistent practice, and helping peers through groups and videos.
+      </p>
+    </section>
+
+    <section id="education" class="reveal">
+      <style>
+        /* Scoped gaming-style visuals for education section */
+        #education{ position:relative; overflow:hidden; padding-top:120px; }
+        #education .game-scene{ position:absolute; inset:0; z-index:0; pointer-events:none; }
+        #education canvas{ width:100%; height:100%; display:block; }
+
+        /* HUD & badges */
+        #education .hud{ position:relative; z-index:2; display:flex; gap:12px; align-items:center; justify-content:space-between; padding:14px 18px 6px 18px; }
+        #education .badge{ padding:8px 12px; border-radius:999px; background:linear-gradient(90deg,#141529,#22233a); border:1px solid rgba(255,255,255,0.06); display:inline-flex; gap:8px; align-items:center; font-weight:700; color:var(--muted) }
+
+        /* Experience bar (animated) */
+        .exp-bar{ flex:1; height:10px; background:rgba(255,255,255,0.04); border-radius:999px; overflow:hidden; margin-left:12px; margin-right:12px; box-shadow: inset 0 2px 8px rgba(0,0,0,0.6) }
+        .exp-bar > i{ position:absolute; left:0; top:0; bottom:0; width:40%; background:linear-gradient(90deg,var(--accent1),var(--accent2)); box-shadow:0 6px 18px rgba(0,0,0,0.6); animation: pulseWidth 3s ease-in-out infinite; border-radius:999px; display:block; }
+        @keyframes pulseWidth{ 0%{width:26%}50%{width:68%}100%{width:26%} }
+
+        /* Scanlines & subtle CRT look */
+        #education .scanline{ position:absolute; inset:0; background: linear-gradient(transparent 45%, rgba(255,255,255,0.015) 50%, transparent 55%); background-size:100% 6px; mix-blend-mode:overlay; opacity:0.2; animation: scroll 6s linear infinite; z-index:1; pointer-events:none; }
+        @keyframes scroll{ from{background-position-y:0} to{background-position-y:100%} }
+
+        /* Neon card effect layered on existing .card */
+        .neon-card{ position:relative; z-index:2; overflow:visible; }
+        .neon-card .neon-border{ position:absolute; inset:-4px; z-index:-1; border-radius:14px;
+          background: conic-gradient(from 0deg,var(--accent1),var(--accent2),var(--accent3),var(--accent1)); filter: blur(10px); opacity:0.9; animation: spin 6s linear infinite; }
+        .neon-card:hover{ transform: translateY(-8px) rotateX(5deg) translateZ(0); box-shadow: 0 20px 60px rgba(0,0,0,0.7); transition: transform .35s cubic-bezier(.2,.9,.3,1); }
+
+        /* Tiny HUD ornaments */
+        .stat{ display:flex; gap:8px; align-items:center; color:var(--muted); font-weight:700; font-size:13px }
+        .stat .val{ color:var(--text); font-weight:800 }
+
+        /* Ensure grid content sits above visuals */
+        #education .grid{ position:relative; z-index:2; gap:16px; margin-top:8px; }
+
+        /* responsive tweak to keep HUD aligned on small screens */
+        @media (max-width:720px){ #education .hud{ flex-direction:column; align-items:flex-start; gap:8px } }
+      </style>
+
+      <!-- background game-like canvas & scanlines -->
+      <div class="game-scene">
+        <canvas id="gameCanvas" aria-hidden="true"></canvas>
+        <div class="scanline" aria-hidden="true"></div>
+      </div>
+
+      <!-- Header / HUD -->
+      <div class="hud">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="badge">🎮 Gamer Mode</div>
+          <div class="badge">⚡ Reactive UI</div>
+          <div class="exp-bar" aria-hidden="true"><i></i></div>
+        </div>
+        <div style="display:flex; gap:12px; align-items:center;">
+          <div class="stat">Level <span class="val">07</span></div>
+          <div class="stat">XP <span class="val">42%</span></div>
+        </div>
+      </div>
+
+      <h2>Education</h2>
+      <div class="grid">
+        <div class="card half neon-card">
+          <div class="neon-border" aria-hidden="true"></div>
+          <div class="label">Batch</div>
+          <div class="value">HSC 2027</div>
+        </div>
+        <div class="card half neon-card">
+          <div class="neon-border" aria-hidden="true"></div>
+          <div class="label">Group</div>
+          <div class="value">Science</div>
+        </div>
+        <div class="card half neon-card">
+          <div class="neon-border" aria-hidden="true"></div>
+          <div class="label">College</div>
+          <div class="value">Your College Name</div>
+        </div>
+        <div class="card half neon-card">
+          <div class="neon-border" aria-hidden="true"></div>
+          <div class="label">Core subjects</div>
+          <div class="value">Physics, Chemistry, Mathematics, ICT</div>
+        </div>
+      </div>
+
+      <script>
+        // Lightweight particle glow for "gaming" atmosphere on the education canvas
+        (function(){
+          const canvas = document.getElementById('gameCanvas');
+          if(!canvas) return;
+          const ctx = canvas.getContext('2d');
+          let w = 0, h = 0;
+          let particles = [];
+
+          function resize(){
+            w = canvas.width = Math.floor(canvas.clientWidth * devicePixelRatio);
+            h = canvas.height = Math.floor(canvas.clientHeight * devicePixelRatio);
+            canvas.style.width = canvas.clientWidth + 'px';
+            canvas.style.height = canvas.clientHeight + 'px';
+            ctx.scale(devicePixelRatio, devicePixelRatio);
+          }
+          window.addEventListener('resize', resize);
+          // initial size (canvas sits inside a section; ensure it matches)
+          resize();
+
+          function spawn(){
+            particles.push({
+              x: Math.random() * canvas.clientWidth,
+              y: canvas.clientHeight + 6,
+              vx: (Math.random() - 0.5) * 0.6,
+              vy: -1 - Math.random() * 1.6,
+              r: 1 + Math.random() * 2,
+              hue: 180 + Math.random() * 160
+            });
+            if(particles.length > 140) particles.shift();
+          }
+
+          // seed
+          for(let i=0;i<40;i++) spawn();
+
+          function draw(){
+            ctx.clearRect(0,0,canvas.clientWidth, canvas.clientHeight);
+            // faint radial vignette
+            const grd = ctx.createLinearGradient(0,0,canvas.clientWidth, canvas.clientHeight);
+            grd.addColorStop(0,'rgba(0,0,0,0.15)');
+            grd.addColorStop(1,'rgba(0,0,0,0.35)');
+            ctx.fillStyle = grd;
+            ctx.fillRect(0,0,canvas.clientWidth, canvas.clientHeight);
+
+            // draw particles with glow
+            ctx.globalCompositeOperation = 'lighter';
+            particles.forEach(p=>{
+              p.x += p.vx;
+              p.y += p.vy;
+              p.vy *= 0.999;
+              const rad = p.r * 6;
+              const g = ctx.createRadialGradient(p.x, p.y, p.r*0.2, p.x, p.y, rad);
+              g.addColorStop(0, `hsla(${p.hue},90%,60%,0.9)`);
+              g.addColorStop(0.3, `hsla(${p.hue},80%,60%,0.25)`);
+              g.addColorStop(1, 'rgba(0,0,0,0)');
+              ctx.fillStyle = g;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, rad, 0, Math.PI*2);
+              ctx.fill();
+            });
+            ctx.globalCompositeOperation = 'source-over';
+
+            // occasionally spawn new particles
+            if(Math.random() < 0.6) spawn();
+            requestAnimationFrame(draw);
+          }
+          draw();
+        })();
+      </script>
+    </section></div>
+
+
+    <section id="links" class="reveal">
+      <h2>Find me online</h2>
+      <div class="socials">
+        <a class="sbtn fb" href="https://www.facebook.com/mdhabiburrahman9999" target="_blank" rel="noopener"
+           onmousemove="this.style.setProperty('--x', event.offsetX+'px'); this.style.setProperty('--y', event.offsetY+'px');">
+          <span class="emoji">📘</span><span>Facebook</span>
+        </a>
+        <a class="sbtn wa" href="https://wa.me/message/6KNG5BCTVB4OI1" target="_blank" rel="noopener"
+           onmousemove="this.style.setProperty('--x', event.offsetX+'px'); this.style.setProperty('--y', event.offsetY+'px');">
+          <span class="emoji">💬</span><span>WhatsApp (DM)</span>
+        </a>
+        <a class="sbtn yt" href="https://youtube.com/@habibur99?si=MiTfK4bo__JxKnqR" target="_blank" rel="noopener"
+           onmousemove="this.style.setProperty('--x', event.offsetX+'px'); this.style.setProperty('--y', event.offsetY+'px');">
+          <span class="emoji">▶️</span><span>YouTube Channel</span>
+        </a>
+        <a class="sbtn yp" href="https://link.yeolpumta.com/P3R5cGU9Z3JvdXBJbnZpdGUmaWQ9NDY2NTgzNg==" target="_blank" rel="noopener"
+           onmousemove="this.style.setProperty('--x', event.offsetX+'px'); this.style.setProperty('--y', event.offsetY+'px');">
+          <span class="emoji">📚</span><span>Yeolpumta Group</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="reveal" style="text-align:center">
+      <p style="color:var(--muted)">© 2025 Habibur Rahman • All rights reserved</p>
+    </section>
+  </div>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){ e.target.classList.add('show'); }
+      })
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
